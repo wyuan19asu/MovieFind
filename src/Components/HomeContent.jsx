@@ -1,6 +1,5 @@
 import React from 'react'
 import homeImg from '../assets/undraw_home_cinema_l7yl.svg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SearchBar from './SearchBar'
 
 export default function HomeContent() {
