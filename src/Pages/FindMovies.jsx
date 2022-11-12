@@ -1,8 +1,21 @@
-import React from 'react'
-import Nav from '../Components/Nav'
-import SearchBar from '../Components/SearchBar'
-import bladeRunner from '../assets/bladerunner.jpg'
+import React, { useState, useEffect } from 'react';
+import Nav from '../Components/Nav';
+import SearchBar from '../Components/SearchBar';
+import Movie from '../Components/Movie';
+import axios from 'axios';
+
 export default function FindMovies() {
+    const [movie, setData] = useState([]);
+    async function getApi() {
+        await axios.get("http://www.omdbapi.com/?i=tt3896198&apikey=5d29f2f2")
+            .then(res => {
+                const apiRes = res.data;
+                setData(apiRes);
+            })
+    };
+    useEffect(() => {
+        getApi();
+    }, []);
     return (
         <>
             <Nav />
@@ -10,97 +23,7 @@ export default function FindMovies() {
                 <div className="row">
                     <SearchBar />
                     <div className="movies__card--container">
-                        <div className="movie__card">
-                            <div className="movie__image">
-                                <img src={bladeRunner} alt="" className='movieImg' />
-                            </div>
-                            <div className="movie__info">
-                                <div className="movie__title">
-                                    Blade Runner 2049
-                                </div>
-                                <div className="movie__rating">
-                                    8.0/10
-                                </div>
-                            </div>
-                        </div>
-                        <div className="movie__card">
-                            <div className="movie__image">
-                                <img src={bladeRunner} alt="" className='movieImg' />
-                            </div>
-                            <div className="movie__info">
-                                <div className="movie__title">
-                                    Blade Runner 2049
-                                </div>
-                                <div className="movie__rating">
-                                    8.0/10
-                                </div>
-                            </div>
-                        </div>
-                        <div className="movie__card">
-                            <div className="movie__image">
-                                <img src={bladeRunner} alt="" className='movieImg' />
-                            </div>
-                            <div className="movie__info">
-                                <div className="movie__title">
-                                    Blade Runner 2049
-                                </div>
-                                <div className="movie__rating">
-                                    8.0/10
-                                </div>
-                            </div>
-                        </div>
-                        <div className="movie__card">
-                            <div className="movie__image">
-                                <img src={bladeRunner} alt="" className='movieImg' />
-                            </div>
-                            <div className="movie__info">
-                                <div className="movie__title">
-                                    Blade Runner 2049
-                                </div>
-                                <div className="movie__rating">
-                                    8.0/10
-                                </div>
-                            </div>
-                        </div>
-                        <div className="movie__card">
-                            <div className="movie__image">
-                                <img src={bladeRunner} alt="" className='movieImg' />
-                            </div>
-                            <div className="movie__info">
-                                <div className="movie__title">
-                                    Blade Runner 2049
-                                </div>
-                                <div className="movie__rating">
-                                    8.0/10
-                                </div>
-                            </div>
-                        </div>
-                        <div className="movie__card">
-                            <div className="movie__image">
-                                <img src={bladeRunner} alt="" className='movieImg' />
-                            </div>
-                            <div className="movie__info">
-                                <div className="movie__title">
-                                    Blade Runner 2049
-                                </div>
-                                <div className="movie__rating">
-                                    8.0/10
-                                </div>
-                            </div>
-                        </div>
-                        <div className="movie__card">
-                            <div className="movie__image">
-                                <img src={bladeRunner} alt="" className='movieImg' />
-                            </div>
-                            <div className="movie__info">
-                                <div className="movie__title">
-                                    Blade Runner 2049
-                                </div>
-                                <div className="movie__rating">
-                                    8.0/10
-                                </div>
-                            </div>
-                        </div>
+                        <Movie movieImage={movie.Poster} movieTitle={movie.Title} movieRating={movie.imdbRating} />
                         {/* card cutoff */}
                     </div>
                 </div>
