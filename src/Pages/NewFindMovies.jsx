@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Nav from '../Components/Nav';
 import SearchBar from '../Components/SearchBar';
 import Movie from '../Components/Movie';
 import axios from 'axios';
@@ -26,19 +25,20 @@ export default function NewFindMovies() {
 
     return (
         <>
-            <Nav />
-            <div className="find__movies--container">
-                <div className="row">
-                    <SearchBar searchVal={searchVal} setSearchVal={setSearchVal} />
-                    <div className="movies__card--container">
-                        {
-                            movieList.map((movie) =>
-                                <Movie movieImage={movie.Poster} movieTitle={movie.Title} key={movie.imdbID} />
-                            )
-                        }
+            <section id="find__movies">
+                <div className="find__movies--container">
+                    <div className="row">
+                        <SearchBar searchVal={searchVal} setSearchVal={setSearchVal} />
+                        <div className="movies__card--container">
+                            {
+                                movieList.map((movie) =>
+                                    <Movie movieImage={movie.Poster} movieTitle={movie.Title} key={movie.imdbID} />
+                                )
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </>
     )
 }
