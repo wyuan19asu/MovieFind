@@ -23,9 +23,9 @@ export default function Nav() {
                         </Link>
                     </li>
                     <li className="nav__link--item">
-                        <a href="mailto:yuanweicheng1@gmail.com" className="nav__link--item-primary">
-                            Contact
-                        </a>
+                        <Link to="/favorites" className='nav__link nav__link-hover'>
+                            Favorites
+                        </Link>
                     </li>
                 </ul>
             </div>
