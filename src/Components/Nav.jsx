@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import navLogo from '../assets/MovieFind.png'
+import navLogo from '../assets/MovieFindtp.png'
 
 export default function Nav() {
     return (
