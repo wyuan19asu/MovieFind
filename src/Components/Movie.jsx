@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function Movie({ movieImage, movieTitle, movieRating }) {
+export default function Movie({ movieImage, movieTitle }) {
+    const [availMovies, setAvailMovies] = useState(true);
     return (
-        <div className="movie__card">
-            <div className="movie__image">
-                <img src={movieImage} alt="" className='movieImg' />
-            </div>
-            <div className="movie__info">
-                <div className="movie__title">
-                    {movieTitle}
+        <>
+            {
+                !availMovies ? "here" : <div className="movie__card">
+                    <div className="movie__image">
+                        <img src={movieImage} alt="" className='movieImg' />
+                    </div>
+
+                    <div className="movie__title">
+                        {movieTitle}
+                    </div>
+                    {/* <div className="movie__rating">
+                            IMDb: {movieRating}/10
+                        </div> */}
+
                 </div>
-                <div className="movie__rating">
-                    {movieRating}/10
-                </div>
-            </div>
-        </div>
+            }
+        </>
     )
 }
