@@ -3,7 +3,6 @@ import SearchBar from '../Components/SearchBar';
 import Movie from '../Components/Movie';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { MovieModal } from '../Components/Modal'
 
 export default function NewFindMovies({ searchVal }) {
     const { term } = useParams();

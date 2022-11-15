@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { MovieModal } from './Modal'
 import noMovie from '../assets/nc-md.jpg'
-import axios from 'axios';
 
 export default function Movie({ movieImage, movieTitle, movieID }) {
     const [modalShow, setModalShow] = useState(false);

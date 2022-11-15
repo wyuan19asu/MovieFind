@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SearchBar from '../Components/SearchBar';
 import noMovies from "../assets/undraw_void_-3-ggu.svg"
 // import Movie from '../Components/Movie';

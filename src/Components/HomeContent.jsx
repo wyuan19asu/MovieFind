@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import homeImg from '../assets/undraw_home_cinema_l7yl.svg'
 import SearchBar from './SearchBar'
 
