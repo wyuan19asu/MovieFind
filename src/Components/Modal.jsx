@@ -7,7 +7,6 @@ import axios from 'axios';
 export function MovieModal(props) {
     const [movieItem, setmovieItem] = useState([]);
     let movSearchID = props.movieid;
-
     async function getApi(id) {
         await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=5d29f2f2`)
             .then(res => {
@@ -38,12 +37,19 @@ export function MovieModal(props) {
                 <Modal.Body>
                     <div className="movie__description--container">
                         <figure>
-                            <img src={movieItem.Poster} alt="" />
+                            <img src={movieItem.Poster} alt="" className='movieImg' />
                         </figure>
-
-                        Year:{movieItem.Year}
-                        Rated: {movieItem.Rated}
-                        IMDb Rating: {movieItem.imdbRating}/10
+                        <div className="movie__description--info">
+                            <div className="movie__descripption--year">
+                                Year:{movieItem.Year}
+                            </div>
+                            <div className="movie__description--rated">
+                                Rated: {movieItem.Rated}
+                            </div>
+                            <div className="movie__description--rating">
+                                IMDb Rating: {movieItem.imdbRating}/10
+                            </div>
+                        </div>
                     </div>
 
                 </Modal.Body>

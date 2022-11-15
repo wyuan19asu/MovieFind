@@ -5,10 +5,9 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { MovieModal } from '../Components/Modal'
 
-export default function NewFindMovies() {
+export default function NewFindMovies({ searchVal }) {
     const { term } = useParams();
     const [movieList, setMovieList] = useState([]);
-    const [searchVal, setSearchVal] = useState("");
 
     async function getApi(term) {
         await axios.get(`http://www.omdbapi.com/?s=${term}&apikey=5d29f2f2`)
@@ -29,7 +28,7 @@ export default function NewFindMovies() {
             <section id="find__movies">
                 <div className="find__movies--container">
                     <div className="rows">
-                        <SearchBar searchVal={searchVal} setSearchVal={setSearchVal} />
+                        <SearchBar searchVal={searchVal} />
                         <div className="movies__card--container">
                             {
                                 movieList.map((movie) =>
