@@ -24,6 +24,10 @@
 
 }
 
+img{
+  width: 100%;
+  height: 100%;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -284,4 +288,8 @@ footer {
 .footer__link {
   color: white;
   margin: 0 20px;
+}
+
+.modal-open{
+  padding: 0 !important;
 }
