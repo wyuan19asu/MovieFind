@@ -1,24 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { MovieModal } from './Modal'
+import noMovie from '../assets/nc-md.jpg'
+import axios from 'axios';
 
-export default function Movie({ movieImage, movieTitle }) {
-    const [availMovies, setAvailMovies] = useState(true);
+export default function Movie({ movieImage, movieTitle, movieID }) {
+    const [modalShow, setModalShow] = useState(false);
     return (
         <>
-            {
-                !availMovies ? "here" : <div className="movie__card">
-                    <div className="movie__image">
+            < MovieModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                movieid={movieID}
+            />
+            <div className="movie__image" onClick={() => setModalShow(true)}>
+                {
+                    movieImage === "N/A" ?
+                        <img src={noMovie} alt="" className='movieImg' />
+                        :
                         <img src={movieImage} alt="" className='movieImg' />
-                    </div>
-
-                    <div className="movie__title">
-                        {movieTitle}
-                    </div>
-                    {/* <div className="movie__rating">
-                            IMDb: {movieRating}/10
-                        </div> */}
-
-                </div>
-            }
+                }
+            </div>
+            <div className="movie__title">
+                {movieTitle}
+            </div>
         </>
+
     )
 }

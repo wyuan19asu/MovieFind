@@ -14,32 +14,28 @@
 
 }
 
-img {
-  width: 100%;
-  height: 100%;
-}
-
 .App {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /* height: 100%; */
+  /* width: 100%; */
   min-height: 100vh;
+  background-color: var(--background-color);
+
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-html,
-body {
-  max-width: 100vw;
+html,body{
   overflow-x: hidden;
 }
 
 /* NAV */
-
 nav {
-  display: flex;
+  /* display: flex; */
+  background-color: aliceblue;
 }
 
 .nav__bar {
@@ -47,7 +43,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  width: 100%;
   max-width: 1200px;
 }
 
@@ -118,10 +113,10 @@ a {
 .home__container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: var(--background-color);
+  gap: 22px;
 }
 
 .home__title,
@@ -178,14 +173,19 @@ a {
 }
 
 /* Find Movies Page */
+#home,
+#find__movies {
+  flex: 1 1;
+}
+
 .find__movies--container {
   background-color: var(--background-color);
   color: white;
   padding: 26px 0;
-  min-height: 100vh;
+
 }
 
-.row {
+.rows {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;

@@ -3,6 +3,7 @@ import SearchBar from '../Components/SearchBar';
 import Movie from '../Components/Movie';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { MovieModal } from '../Components/Modal'
 
 export default function NewFindMovies() {
     const { term } = useParams();
@@ -27,12 +28,14 @@ export default function NewFindMovies() {
         <>
             <section id="find__movies">
                 <div className="find__movies--container">
-                    <div className="row">
+                    <div className="rows">
                         <SearchBar searchVal={searchVal} setSearchVal={setSearchVal} />
                         <div className="movies__card--container">
                             {
                                 movieList.map((movie) =>
-                                    <Movie movieImage={movie.Poster} movieTitle={movie.Title} key={movie.imdbID} />
+                                    <div className="movie__card" key={movie.imdbID}>
+                                        <Movie movieImage={movie.Poster} movieID={movie.imdbID} movieTitle={movie.Title} />
+                                    </div>
                                 )
                             }
                         </div>
