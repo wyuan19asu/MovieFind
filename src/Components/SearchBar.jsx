@@ -41,7 +41,7 @@ function Input({ value, onKeyDown, onChange }) {
     return (
         <input type="text"
             className="search__bar--input"
-            placeholder='Search by name'
+            placeholder='Search by movie name'
             value={value}
             onChange={onChange}
             onKeyDown={onKeyDown}
