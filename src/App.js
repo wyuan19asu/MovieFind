@@ -8,6 +8,7 @@ import Home from "./Pages/Home";
 import NewFindMovies from "./Pages/NewFindMovies"
 import Nav from './Components/Nav';
 import Footer from "./Components/Footer";
+import Favorites from "./Pages/Favorites";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/NewFindMovies/:term" element={<NewFindMovies />}></Route>
-          <Route path="/findmovies/" element={<FindMovies />}></Route>
+          <Route path="/NewFindMovies/:term" element={<NewFindMovies />} />
+          <Route path="/findmovies" element={<FindMovies />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
         <Footer />
       </div>
