@@ -15,7 +15,7 @@ export default function NewFindMovies({ searchVal }) {
                 if (apiRes) {
                     setMovieList(apiRes);
                 }
-            })
+            }).catch((error) => console.log(error));
     };
 
     useEffect(() => {

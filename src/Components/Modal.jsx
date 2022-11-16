@@ -16,7 +16,7 @@ export function MovieModal(props) {
                     console.log(apiRes);
                     setmovieItem(apiRes);
                 }
-            })
+            }).catch((error) => console.log(error));
     };
 
     useEffect(() => {
@@ -33,39 +33,41 @@ export function MovieModal(props) {
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        {movieItem.Title}
+                        <h3 className='movie__heading'>{movieItem.Title}</h3>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="movie__description--container">
                         <figure className='movie__description--poster'>
-                            <img src={movieItem.Poster} alt="" className='movieImg' />
+                            <img src={movieItem.Poster} alt="" className='movieImg modalImg' />
                         </figure>
 
                         <div className="movie__info--container">
                             <div className="movie__details--info">
+                                <div className="movie__description--rated">
+                                    {movieItem.Rated}
+                                </div>
                                 <div className="movie__description--year">
-
                                     <FontAwesomeIcon icon="fa-regular fa-calendar" className='calendar__icon' />
                                     <div className="movie__description--yearnum">
                                         {movieItem.Year}
-
                                     </div>
-                                </div>
-                                <div className="movie__description--rated">
-                                    {movieItem.Rated}
                                 </div>
                                 <div className="movie__description--rating">
                                     <div className="imdb">IMDb: </div>
                                     <div className="imdbRating">{movieItem.imdbRating}/10</div>
                                 </div>
+                                <div className="movie__description--runtime">
+                                    <FontAwesomeIcon icon="fa-regular fa-clock" className='clock__icon' />
+                                    <div className="runtime">{movieItem.Runtime}</div>
+                                </div>
                             </div>
                             <div className="movie__description--genre">
-                                <h5>Genre</h5>
+                                <h3 className='movie__heading'>Genre</h3>
                                 {movieItem.Genre}
                             </div>
                             <div className="movie__description--overview">
-                                <h4>Overview</h4>
+                                <h4 className='movie__heading'>Overview</h4>
                                 {movieItem.Plot}
                             </div>
                         </div>
@@ -73,6 +75,8 @@ export function MovieModal(props) {
 
                 </Modal.Body>
                 <Modal.Footer>
+                    <Button className="add__favorites">Add to favorites</Button>
+
                     <Button onClick={props.onHide}>Close</Button>
                 </Modal.Footer>
             </Modal>

@@ -296,18 +296,38 @@ footer {
   padding: 0 !important;
 }
 
+.modal-lg {
+  --bs-modal-width: 940px;
+}
+
+.modalImg {
+  width: 280px;
+  height: 400px;
+  max-width: none;
+  max-height: none;
+}
+
 .movie__description--container {
   display: flex;
+  font-size: 18px;
+}
+
+.movie__heading {
+  font-weight: bold;
 }
 
 .movie__details--info {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 20px;
+
 }
 
 .movie__info--container {
-  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px
 }
 
 .movie__description--poster {
@@ -316,7 +336,7 @@ footer {
 
 .calendar__icon {
   font-size: 18px;
-  margin: 10px;
+  margin-right: 10px;
 }
 
 .movie__description--rated {
@@ -341,5 +361,18 @@ footer {
 
 .imdb {
   margin-right: 10px;
-  color: yellow
+  color: rgb(247, 247, 39)
+}
+
+.movie__description--genre {
+  margin-bottom: 20px;
+}
+
+.movie__description--runtime {
+  display: flex;
+  align-items: center;
+}
+
+.clock__icon {
+  margin-right: 10px;
 }
