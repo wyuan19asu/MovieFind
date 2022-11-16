@@ -6,9 +6,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faCalendar} from '@fortawesome/free-regular-svg-icons'
+import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons'
 
-library.add(faMagnifyingGlass, faCalendar);
+library.add(faMagnifyingGlass, faCalendar, faClock);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
