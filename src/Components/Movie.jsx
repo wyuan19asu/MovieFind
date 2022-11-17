@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { MovieModal } from './Modal'
 import noMovie from '../assets/nc-md.jpg'
 
-export default function Movie({ movieImage, movieTitle, movieID }) {
+export default function Movie({ movieImage, movieTitle, movieID, addtoFave, favorites }) {
     const [modalShow, setModalShow] = useState(false);
     return (
         <>
@@ -10,6 +10,8 @@ export default function Movie({ movieImage, movieTitle, movieID }) {
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 movieid={movieID}
+                addtoFave={addtoFave}
+                favorites={favorites}
             />
             <div className="movie__image" onClick={() => setModalShow(true)}>
                 {

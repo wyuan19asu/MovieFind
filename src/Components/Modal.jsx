@@ -4,29 +4,31 @@ import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export function MovieModal(props) {
+export function MovieModal({ addtoFave, favorite, show, onHide, movieid }) {
     const [movieItem, setmovieItem] = useState([]);
-    let movSearchID = props.movieid;
 
+    console.log(movieid);
     async function getApi(id) {
         await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=5d29f2f2`)
             .then(res => {
                 const apiRes = res.data;
                 if (apiRes) {
-                    console.log(apiRes);
                     setmovieItem(apiRes);
                 }
             }).catch((error) => console.log(error));
     };
 
     useEffect(() => {
-        getApi(movSearchID);
-    }, [movSearchID]);
+        getApi(movieid);
+    }, [movieid]);
 
+    function addMovietoFave(id) {
+        addtoFave(id);
+    }
     return (
         <>
             <Modal
-                {...props}
+                show={show}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
@@ -75,9 +77,8 @@ export function MovieModal(props) {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button className="add__favorites">Add to favorites</Button>
-
-                    <Button onClick={props.onHide}>Close</Button>
+                    <Button className="add__favorites" onClick={() => addMovietoFave(movieItem)}>Add to favorites</Button>
+                    <Button onClick={onHide}>Close</Button>
                 </Modal.Footer>
             </Modal>
         </>

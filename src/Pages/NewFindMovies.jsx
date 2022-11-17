@@ -4,7 +4,7 @@ import Movie from '../Components/Movie';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-export default function NewFindMovies({ searchVal }) {
+export default function NewFindMovies({ addtoFave, favorites, searchVal }) {
     const { term } = useParams();
     const [movieList, setMovieList] = useState([]);
 
@@ -32,7 +32,12 @@ export default function NewFindMovies({ searchVal }) {
                             {
                                 movieList.map((movie) =>
                                     <div className="movie__card" key={movie.imdbID}>
-                                        <Movie movieImage={movie.Poster} movieID={movie.imdbID} movieTitle={movie.Title} />
+                                        <Movie
+                                            movieImage={movie.Poster}
+                                            movieID={movie.imdbID}
+                                            movieTitle={movie.Title}
+                                            addtoFave={addtoFave}
+                                            favorites={favorites} />
                                     </div>
                                 )
                             }

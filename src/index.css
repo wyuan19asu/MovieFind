@@ -180,7 +180,8 @@ a {
 
 /* Find Movies Page */
 #home,
-#find__movies {
+#find__movies,
+#favorites__container {
   flex: 1 1;
 }
 
@@ -195,6 +196,7 @@ a {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 50px
 }
 
 .movies__card--container {
@@ -244,7 +246,7 @@ a {
 .no__movies--container {
   display: flex;
   justify-content: center;
-  margin-top: 120px;
+  margin-top: 60px;
   position: relative;
 }
 
@@ -375,4 +377,30 @@ footer {
 
 .clock__icon {
   margin-right: 10px;
+}
+
+.favorites__movie--container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: aliceblue;
+  min-height: 100vh;
+
+}
+
+.no__faves--container {
+  position: relative;
+}
+
+.no__faves--img {
+  width: 700px;
+  height: 700px;
+}
+
+.no__faves--caption {
+  position: absolute;
+  top: 27%;
+  left: 56%;
+  color: var(--primary-color);
+  font-size: 26px
 }
