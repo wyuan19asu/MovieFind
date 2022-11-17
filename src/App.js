@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import FindMovies from "./Pages/FindMovies";
 import Home from "./Pages/Home";
-import NewFindMovies from "./Pages/NewFindMovies"
 import Nav from './Components/Nav';
 import Footer from "./Components/Footer";
 import Favorites from "./Pages/Favorites";
@@ -32,8 +31,8 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/NewFindMovies/:term" element={<NewFindMovies addtoFave={addtoFave} favorite={favorite} />} />
-          <Route path="/findmovies" element={<FindMovies />} />
+          <Route path="/findmovies/" element={<FindMovies addtoFave={addtoFave} favorite={favorite} />} />
+          <Route path="/findmovies/:term" element={<FindMovies addtoFave={addtoFave} favorite={favorite} />} />
           <Route path="/favorites" element={<Favorites favorite={favorite} removeFave={removeFave} />} />
         </Routes>
         <Footer />
