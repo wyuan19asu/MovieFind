@@ -3,11 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 export function MovieModal({ addtoFave, favorite, show, onHide, movieid }) {
     const [movieItem, setmovieItem] = useState([]);
-
-    console.log(movieid);
     async function getApi(id) {
         await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=5d29f2f2`)
             .then(res => {
@@ -25,6 +24,11 @@ export function MovieModal({ addtoFave, favorite, show, onHide, movieid }) {
     function addMovietoFave(id) {
         addtoFave(id);
     }
+
+    function movieExistsinFave() {
+        return favorite.find((movie) => movie.imdbID === movieItem.imdbID);
+    }
+    movieExistsinFave();
     return (
         <>
             <Modal
@@ -33,7 +37,7 @@ export function MovieModal({ addtoFave, favorite, show, onHide, movieid }) {
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
-                <Modal.Header closeButton>
+                <Modal.Header>
                     <Modal.Title id="contained-modal-title-vcenter">
                         <h3 className='movie__heading'>{movieItem.Title}</h3>
                     </Modal.Title>
@@ -77,7 +81,14 @@ export function MovieModal({ addtoFave, favorite, show, onHide, movieid }) {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button className="add__favorites" onClick={() => addMovietoFave(movieItem)}>Add to favorites</Button>
+                    {
+                        movieExistsinFave() ?
+                            <Link to="/favorites">
+                                <Button >Go to favorites</Button>
+                            </Link>
+                            :
+                            <Button className="add__favorites" onClick={() => addMovietoFave(movieItem)}>Add to favorites</Button>
+                    }
                     <Button onClick={onHide}>Close</Button>
                 </Modal.Footer>
             </Modal>
