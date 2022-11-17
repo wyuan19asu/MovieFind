@@ -7,16 +7,13 @@ export default function Favorites({ favorite, removeFave }) {
             <div className="rows">
                 <div className="favorites__movie--container">
                     {
-                        favorite.map((movie) => <div className="favorite__movie--card" key={movie.imdbID}>
-                            <div className="favorite__movie--img">
+                        favorite.map((movie) =>
+                            <div className="favorite__movie--card" key={movie.imdbID}>
                                 <figure className='movie__description--poster'>
-                                    <img src={movie.Poster} alt="" className='movieImg' />
-                                    <span>
-                                        <button className="removeMovie" onClick={() => removeFave(movie)}>Remove</button>
-                                    </span>
+                                    <img src={movie.Poster} alt="" className='movieImg favoriteImg' />
                                 </figure>
-                            </div>
-                        </div>)
+                                <button className="removeMovie" onClick={() => removeFave(movie)}>Remove</button>
+                            </div>)
                     }
                     {favorite.length === 0 &&
                         (<figure className="no__faves--container">

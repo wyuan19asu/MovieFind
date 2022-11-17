@@ -12,18 +12,30 @@ import Favorites from "./Pages/Favorites";
 
 function App() {
   const [favorite, setFavorite] = useState([]);
+  function saveToLocal(items) {
+    localStorage.setItem('favorite-movies', JSON.stringify(items))
+  }
 
   function addtoFave(movie) {
-    setFavorite([...favorite, movie])
+    const addedToFaves = [...favorite, movie];
+    setFavorite(addedToFaves);
+    saveToLocal(addedToFaves);
   }
 
   function removeFave(item) {
-    setFavorite(favorite.filter((movie) => movie.imdbID !== item.imdbID))
+    const faves = favorite.filter((movie) => movie.imdbID !== item.imdbID)
+    setFavorite(faves);
+    saveToLocal(faves);
   }
 
   useEffect(() => {
     console.log("app", favorite);
-  }, [favorite])
+  }, [favorite]);
+
+  useEffect(() => {
+    const favoriteMovie = JSON.parse(localStorage.getItem('favorite-movies'));
+    setFavorite([favoriteMovie]);
+  }, []);
 
   return (
     <Router>
