@@ -8,13 +8,13 @@ export default function SearchBar() {
 
     function clickSearch() {
         if (searchVal !== "") {
-            navigate(`/NewFindMovies/${searchVal}`);
+            navigate(`/findmovies/${searchVal}`);
         }
     }
 
     function handleSearch(event) {
         if (event.key === "Enter" && searchVal !== "") {
-            navigate(`/NewFindMovies/${searchVal}`);
+            navigate(`/findmovies/${searchVal}`);
         }
     }
 
