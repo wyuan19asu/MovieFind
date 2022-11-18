@@ -18,15 +18,13 @@ function App() {
   }
 
   function addtoFave(movie) {
-    const addedToFaves = [...favorite, movie];
-    setFavorite(addedToFaves);
-    saveToLocal(addedToFaves);
+    setFavorite([...favorite, movie]);
+    saveToLocal([...favorite, movie]);
   }
 
   function removeFave(item) {
-    const faves = favorite.filter((movie) => movie.imdbID !== item.imdbID)
-    setFavorite(faves);
-    saveToLocal(faves);
+    setFavorite(favorite.filter((movie) => movie.imdbID !== item.imdbID));
+    saveToLocal(favorite.filter((movie) => movie.imdbID !== item.imdbID));
   }
 
   // useEffect(() => {
