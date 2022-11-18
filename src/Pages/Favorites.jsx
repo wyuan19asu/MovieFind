@@ -7,20 +7,20 @@ export default function Favorites({ favorite, removeFave }) {
             <div className="rows">
                 <div className="favorites__movie--container">
                     {
-                        favorite.map((movie) =>
-                            <div className="favorite__movie--card" key={movie.imdbID}>
-                                <figure className='movie__description--poster'>
-                                    <img src={movie.Poster} alt="" className='movieImg favoriteImg' />
-                                </figure>
-                                <button className="removeMovie" onClick={() => removeFave(movie)}>Remove</button>
-                            </div>)
-                    }
-                    {favorite.length === 0 &&
-                        (<figure className="no__faves--container">
-                            <img src={noFaves} alt="" className="no__faves--img" />
-                            <figcaption className='no__faves--caption'>No favorites here!</figcaption>
-                        </figure>
-                        )
+                        favorite.length > 0 ?
+                            favorite.map((movie) =>
+                                <div className="favorite__movie--card" key={movie.imdbID}>
+                                    <figure className='movie__description--poster'>
+                                        <img src={movie.Poster} alt="" className='movieImg favoriteImg' />
+                                    </figure>
+                                    <button className="removeMovie" onClick={() => removeFave(movie)}>Remove</button>
+                                </div>)
+                            :
+                            (<figure className="no__faves--container">
+                                <img src={noFaves} alt="" className="no__faves--img" />
+                                <figcaption className='no__faves--caption'>No favorites here!</figcaption>
+                            </figure>
+                            )
                     }
                 </div>
             </div>
