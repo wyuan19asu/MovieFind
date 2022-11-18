@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export function MovieModal({ addtoFave, favorite, show, onHide, movieid }) {
     const [movieItem, setmovieItem] = useState([]);
     async function getApi(id) {
-        await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=5d29f2f2`)
+        await axios.get(`https://www.omdbapi.com/?i=${id}&apikey=5d29f2f2`)
             .then(res => {
                 const apiRes = res.data;
                 if (apiRes) {

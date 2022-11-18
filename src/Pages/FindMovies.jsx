@@ -10,7 +10,7 @@ export default function FindMovies({ addtoFave, favorite, searchVal }) {
     const [movieList, setMovieList] = useState([]);
 
     async function getApi(term) {
-        await axios.get(`http://www.omdbapi.com/?s=${term}&apikey=5d29f2f2`)
+        await axios.get(`https://www.omdbapi.com/?s=${term}&apikey=5d29f2f2`)
             .then(res => {
                 const apiRes = res.data.Search;
                 if (apiRes) {
