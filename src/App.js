@@ -12,7 +12,6 @@ import Favorites from "./Pages/Favorites";
 
 function App() {
   const [favorite, setFavorite] = useState([]);
-  console.log("favorite appjs", favorite);
   function saveToLocal(items) {
     localStorage.setItem('favorite-movies', JSON.stringify(items))
   }
@@ -27,14 +26,9 @@ function App() {
     saveToLocal(favorite.filter((movie) => movie.imdbID !== item.imdbID));
   }
 
-  // useEffect(() => {
-  //   // console.log("app", favorite);
-  // }, [favorite]);
-
   useEffect(() => {
     let favoriteMovie = localStorage.getItem('favorite-movies');
     favoriteMovie = favoriteMovie ? JSON.parse(favoriteMovie) : [];
-    console.log("JFDS", favoriteMovie)
     setFavorite(favoriteMovie);
   }, []);
 
