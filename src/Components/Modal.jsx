@@ -28,7 +28,6 @@ export function MovieModal({ addtoFave, favorite, show, onHide, movieid }) {
     function movieExistsinFave() {
         return favorite.find((movie) => movie.imdbID === movieItem.imdbID);
     }
-    movieExistsinFave();
     return (
         <>
             <Modal
