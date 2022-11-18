@@ -32,8 +32,10 @@ function App() {
   // }, [favorite]);
 
   useEffect(() => {
-    const favoriteMovie = JSON.parse(localStorage.getItem('favorite-movies'));
-    setFavorite([favoriteMovie]);
+    let favoriteMovie = localStorage.getItem('favorite-movies');
+    favoriteMovie = favoriteMovie ? JSON.parse(favoriteMovie) : [];
+    console.log("JFDS", favoriteMovie)
+    setFavorite(favoriteMovie);
   }, []);
 
   return (
