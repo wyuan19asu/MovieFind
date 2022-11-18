@@ -12,6 +12,7 @@ import Favorites from "./Pages/Favorites";
 
 function App() {
   const [favorite, setFavorite] = useState([]);
+  console.log("favorite appjs", favorite);
   function saveToLocal(items) {
     localStorage.setItem('favorite-movies', JSON.stringify(items))
   }
@@ -28,9 +29,9 @@ function App() {
     saveToLocal(faves);
   }
 
-  useEffect(() => {
-    console.log("app", favorite);
-  }, [favorite]);
+  // useEffect(() => {
+  //   // console.log("app", favorite);
+  // }, [favorite]);
 
   useEffect(() => {
     const favoriteMovie = JSON.parse(localStorage.getItem('favorite-movies'));
