@@ -463,6 +463,8 @@ footer {
 /* FAVORITES */
 .favorites__movie--container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin: 0 auto;
   color: aliceblue;
