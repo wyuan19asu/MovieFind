@@ -200,6 +200,7 @@ h1 {
 h2 {
   font-size: 36px;
 }
+
 .home__subtitle {
   margin-bottom: 30px;
 }
@@ -388,6 +389,7 @@ footer {
 .modal-content h3 {
   margin: 0;
 }
+
 .movie__description--container {
   display: flex;
   font-size: 18px;
@@ -412,7 +414,6 @@ footer {
 }
 
 .movie__description--poster {
-  margin-right: 30px;
   transition: all 300ms ease;
 }
 
@@ -462,8 +463,8 @@ footer {
 /* FAVORITES */
 .favorites__movie--container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  margin: 0 auto;
   color: aliceblue;
   padding: 16px;
 }
@@ -487,22 +488,23 @@ footer {
 }
 
 .favorite__movie--card {
-  display: flex;
-  flex-direction: column;
+  width: 25%;
+  padding: 24px;
 }
 
 .removeMovie {
   background-color: var(--background-color);
-  border: 1px solid;
-  border-radius: 5px;
+  border: 2px solid;
+  border-radius: 10px;
   color: red;
   font-size: 14px;
   padding: 2px;
   width: 80px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 /* RESPONSIVE */
+/* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
 @media (max-width: 768px) {
   h1 {
     font-size: 40px;
@@ -529,9 +531,10 @@ footer {
     justify-content: center;
   }
 
-  .movie__card {
+  .movie__card, .favorite__movie--card  {
     width: 50%;
   }
+
   .no__movies--caption {
     position: absolute;
     top: 28%;
@@ -551,6 +554,7 @@ footer {
   }
 }
 
+/* SMALL PHONES, LARGE SMARTPHONES */
 @media (max-width: 550px) {
   h1 {
     font-size: 30px;
