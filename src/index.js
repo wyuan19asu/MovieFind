@@ -1,16 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMagnifyingGlass, faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendar,
+  faClock,
+  faCircleXmark,
+} from "@fortawesome/free-regular-svg-icons";
 
-library.add(faMagnifyingGlass, faCalendar, faClock);
+library.add(faMagnifyingGlass, faCalendar, faClock, faBars, faCircleXmark);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
