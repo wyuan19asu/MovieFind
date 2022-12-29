@@ -13,14 +13,14 @@ export default function Movie({ movieImage, movieTitle, movieID, addtoFave, favo
                 addtoFave={addtoFave}
                 favorite={favorite}
             />
-            <div className="movie__image" onClick={() => setModalShow(true)}>
+            <figure className="movie__image--wrapper" onClick={() => setModalShow(true)}>
                 {
                     movieImage === "N/A" ?
                         <img src={noMovie} alt="" className='movieImg' />
                         :
                         <img src={movieImage} alt="" className='movieImg' />
                 }
-            </div>
+            </figure>
             <div className="movie__title">
                 {movieTitle}
             </div>

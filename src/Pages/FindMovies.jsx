@@ -40,25 +40,27 @@ export default function FindMovies({ addtoFave, favorite, searchVal }) {
                     </section>
                     :
                     <section id="find__movies">
-                        <div className="find__movies--container">
-                            <div className="rows">
-                                <SearchBar searchVal={searchVal} />
-                                <div className="movies__card--container">
-                                    {
-                                        movieList.map((movie) =>
-                                            <div className="movie__card" key={movie.imdbID}>
-                                                <Movie
-                                                    movieImage={movie.Poster}
-                                                    movieID={movie.imdbID}
-                                                    movieTitle={movie.Title}
-                                                    addtoFave={addtoFave}
-                                                    favorite={favorite} />
-                                            </div>
-                                        )
-                                    }
+                        <main id="movies">
+                            <div className="find__movies--container">
+                                <div className="rows">
+                                    <SearchBar searchVal={searchVal} />
+                                    <div className="movies__card--container">
+                                        {
+                                            movieList.map((movie) =>
+                                                <div className="movie__card" key={movie.imdbID}>
+                                                    <Movie
+                                                        movieImage={movie.Poster}
+                                                        movieID={movie.imdbID}
+                                                        movieTitle={movie.Title}
+                                                        addtoFave={addtoFave}
+                                                        favorite={favorite} />
+                                                </div>
+                                            )
+                                        }
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     </section>
             }
         </>
